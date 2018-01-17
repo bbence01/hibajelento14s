@@ -28,9 +28,19 @@ namespace HIbabejelento14S
 
         public void OK_Click(object sender, EventArgs e)
         {
+            
+            if (String.IsNullOrEmpty(textBox1.Text) || (String.IsNullOrEmpty(textBox2.Text)))
+            {
+                MessageBox.Show("Üres Mezők",
+                    "Error Message");
+            }
 
-            Hiba1 hiba = new Hiba1(textBox1.Text, textBox2.Text, dateTimePicker1.MaxDate);
-            hibak.Add(hiba);
+            else {
+                Hiba1 hiba = new Hiba1(textBox1.Text, textBox2.Text, dateTimePicker1.MaxDate);
+                hibak.Add(hiba);
+                textBox1.Text = null;
+                textBox2.Text = null;
+            }
         }
 
      
